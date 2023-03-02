@@ -1,0 +1,18 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body>
+        Node JS + <%- title%>
+        <br />
+        Sử dụng lệnh If <% if (day == 'Thứ bảy' || day == 'Chủ nhật') { %>
+        <h3>Hôm nay là cuối tuần</h3>
+        <% } else {%>
+        <h3>Hôm nay là ngày <%- day%></h3>
+        <%}%>
+    </body>
+</html>
