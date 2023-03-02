@@ -7,6 +7,6 @@ app.get('/', (req, res) => {
     res.send('Welcome');
 });
 
-app.listen(port, (req, res) => {
+app.listen(port, () => {
     console.log(`Project dang chay duoi port ${port}`);
 });
