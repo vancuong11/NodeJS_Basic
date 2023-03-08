@@ -1,13 +1,12 @@
-const express = require('express');
+// const express = require('express');
+import express from 'express';
+import configViewEngine from './configs/viewEngine';
+require('dotenv').config();
+
 const app = express();
-const port = 3000;
+const port = process.env.PORT;
 
-// view engine configuration
-app.set('view engine', 'ejs');
-app.set('views', './src/views');
-
-// public folder configuration
-app.use(express.static('./src/public'));
+configViewEngine(app);
 
 // Form configuration
 const bodyParser = require('body-parser');
