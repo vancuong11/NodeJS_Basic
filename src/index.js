@@ -1,12 +1,17 @@
 // const express = require('express');
 import express from 'express';
 import configViewEngine from './configs/viewEngine';
+import initWebRoute from './router/web';
 require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT;
 
+// setup view engine
 configViewEngine(app);
+
+// set up init web Router
+initWebRoute(app);
 
 // Form configuration
 const bodyParser = require('body-parser');
@@ -31,43 +36,6 @@ const upload = multer({
 }).single('productImage');
 
 // ------------------ Render Views ------------------------------
-// truyen bien cho view / Sử dụng lệnh If
-app.get('/', (req, res) => {
-    res.render('home', { title: 'Trang chu', day: 'Thứ Năm' });
-});
-
-// Sử dụng vòng lặp
-app.get('/sp', (req, res) => {
-    var sp = [
-        { name: 'HTC M9', price: 6000000 },
-        { name: 'Samsung S8', price: 750000 },
-    ];
-    res.render('sp', { sp: sp });
-});
-
-// Nhận tham số dạng từ url
-
-app.get('/search/:keyword/:page', (req, res) => {
-    let str = `keyword= ${req.params.keyword}<br>`;
-    str += `page= ${req.params.page}`;
-    res.send(str);
-});
-
-app.get('/cat', (req, res, next) => {
-    str = `idcat= ${req.query.idcat} <br>`;
-    str += `page= ${req.query.page}`;
-    res.send(str);
-});
-
-// Sử dụng form addEmail
-app.get('/addEmail', (req, res) => {
-    res.render('formEmail');
-});
-
-app.post('/addEmail', (req, res) => {
-    const email = req.body.email;
-    res.send(email);
-});
 
 // Upload hình trong form
 app.get('/upload', (req, res) => {
