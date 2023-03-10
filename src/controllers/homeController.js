@@ -15,7 +15,23 @@ const getDetailPage = (req, res) => {
         res.send(JSON.stringify(results));
     });
 };
+
+const createNewUser = (req, res) => {
+    const firstName = req.body.firstName;
+    const lastName = req.body.lastName;
+    const email = req.body.email;
+    const address = req.body.address;
+
+    connection.query(
+        `INSERT INTO users(firstName, lastName, email, address) VALUES ('${firstName}', '${lastName}', '${email}', '${address}')`,
+        function (err, results, fields) {
+            res.redirect('/');
+        },
+    );
+};
+
 module.exports = {
     getHomePage,
     getDetailPage,
+    createNewUser,
 };

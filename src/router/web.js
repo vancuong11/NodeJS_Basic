@@ -10,6 +10,9 @@ const initWebRoute = (app) => {
     // trang thoong tin chi tiet
     router.get('/detail/users/:id', homeController.getDetailPage);
 
+    // add user
+    router.post('/create-new-user', homeController.createNewUser);
+
     return app.use('/', router);
 };
 
