@@ -2,6 +2,7 @@
 import mysql from 'mysql2';
 // import mysql from 'mysql2/promise';
 
+console.log('connection DB successfully');
 // create the connection to database
 const connection = mysql.createConnection({
     host: 'localhost',

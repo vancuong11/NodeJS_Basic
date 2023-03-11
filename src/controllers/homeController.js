@@ -52,10 +52,12 @@ const editUser = (req, res) => {
 };
 
 const updateUser = (req, res) => {
-    const { firstName, lastName, email, address, id } = req.body;
+    const userId = req.params.id;
+
+    const { firstName, lastName, email, address } = req.body;
     connection.query(
-        `UPDATE users SET firstName = ?, lastName = ?, email = ?, address = ? WHERE id = ?`,
-        [firstName, lastName, email, address, id],
+        'UPDATE users SET firstName = ?, lastName = ?, email = ?, address = ? WHERE id = ?',
+        [firstName, lastName, email, address, userId],
         function (err, results, fields) {
             res.redirect('/');
         },

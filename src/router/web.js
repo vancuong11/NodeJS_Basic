@@ -18,7 +18,7 @@ const initWebRoute = (app) => {
 
     // edit user
     router.get('/edit/user/:id', homeController.editUser);
-    router.post('/update-user', homeController.updateUser);
+    router.post('/edit/user/:id', homeController.updateUser);
 
     return app.use('/', router);
 };

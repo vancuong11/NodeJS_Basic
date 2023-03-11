@@ -29,7 +29,7 @@
     <body>
         <div class="container">
             <h3 class="mt-4">Edit User</h3>
-            <form action="/update-user" method="POST">
+            <form action="/edit/user/<%= dataUser.id%>" method="POST">
                 <div class="form-group">
                     <label>First Name</label>
                     <input
@@ -69,7 +69,7 @@
                         class="form-control"
                         placeholder="Enter Address"
                     />
-                    <input type="text" value="<%= dataUser.id%>" name="id" class="form-control" hidden />
+                    <!-- <input type="text" value="<%= dataUser.id%>" name="id" class="form-control" hidden /> -->
                 </div>
 
                 <button type="submit" class="btn btn-primary">Submit</button>
