@@ -2,7 +2,7 @@
 import express from 'express';
 import configViewEngine from './configs/viewEngine';
 import initWebRoute from './router/web';
-
+import initApiRoute from './router/api';
 require('dotenv').config();
 
 const app = express();
@@ -17,6 +17,9 @@ configViewEngine(app);
 
 // set up init web Router
 initWebRoute(app);
+
+// set up init api Router
+initApiRoute(app);
 
 app.listen(port, () => {
     console.log(`Project dang chay duoi port ${port}`);
